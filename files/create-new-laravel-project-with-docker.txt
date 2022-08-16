@@ -1,0 +1,21 @@
+
+
+
+> first of all `sudo make stop` the currently running laravel under docker project
+> then somewhere do `composer create-project laravel/laravel project-name`
+> extract `docker8.1.2.zip`, delete `readme.md` and `.gitignore`
+> merge the both folders items into single folder, laravel+docker-repo
+> do `php artisan key:generate`
+> then instead of doing `sudo make install`, do `sudo make start`
+> it will take some seconds to create `volumes` folder with lock
+> then this is point to ponder, wait for few seconds until the size of volumes becomes `142.5MBs`
+> there will be four folders like `sys | information schema | database-name.db | msyql` and few other files
+    like
+    airtime_test_db    aria_log_control  ib_buffer_pool  ib_logfile0  multi-master.info  mysql_upgrade_info  sys
+    aria_log.00000001  ddl_recovery.log  ibdata1         ibtmp1       mysql              performance_schema
+
+> then instead of `sudo chmod -R 0777 *`, do `sudo make console`
+> then, after 2 - 5 seconds, do `chmod -R 0777 *` (without sudo within docker console), it'll unlock
+    all the locked folders and files inside `volumnes/mariadb/`
+> now you can hit in the browser `localhost` and `localhost:9002` and then `php artisan migrate`
+

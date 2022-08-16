@@ -1,0 +1,63 @@
+
+
+for installing package directly from github, for only testing how does it work
+
+read this article
+
+
+**************************************************
+https://getcomposer.org/doc/05-repositories.md#vcs
+**************************************************
+
+
+In new laravel project, do this
+
+******************************************************
+{
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/igorw/monolog"
+        }
+    ],
+    "require": {
+        "monolog/monolog": "dev-bugfix"
+    }
+}
+******************************************************
+
+
+
+
+
+================== the full article from composer ==================
+VCS#
+
+VCS stands for version control system. This includes versioning systems like git, svn, fossil or hg. Composer has a repository type for installing packages from these systems.
+Loading a package from a VCS repository#
+
+There are a few use cases for this. The most common one is maintaining your own fork of a third party library. If you are using a certain library for your project, and you decide to change something in the library, you will want your project to use the patched version. If the library is on GitHub (this is the case most of the time), you can fork it there and push your changes to your fork. After that you update the project's composer.json. All you have to do is add your fork as a repository and update the version constraint to point to your custom branch. In composer.json only, you should prefix your custom branch name with "dev-" (without making it part of the actual branch name). For version constraint naming conventions see Libraries for more information.
+
+Example assuming you patched monolog to fix a bug in the bugfix branch:
+
+{
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/igorw/monolog"
+        }
+    ],
+    "require": {
+        "monolog/monolog": "dev-bugfix"
+    }
+}
+
+When you run php composer.phar update, you should get your modified version of monolog/monolog instead of the one from packagist.
+
+Note that you should not rename the package unless you really intend to fork it in the long term, and completely move away from the original package. Composer will correctly pick your package over the original one since the custom repository has priority over packagist. If you want to rename the package, you should do so in the default (often master) branch and not in a feature branch, since the package name is taken from the default branch.
+
+Also note that the override will not work if you change the name property in your forked repository's composer.json file as this needs to match the original for the override to work.
+
+If other dependencies rely on the package you forked, it is possible to inline-alias it so that it matches a constraint that it otherwise would not. For more information see the aliases article.
+
+

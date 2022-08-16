@@ -1,0 +1,24 @@
+
+---------------------- 1 ------------------------------------------------------------------------------------
+
+    I faced an issue while playing with permissions, the issues was "Git Push Error: insufficient permission for
+    adding an object to repository database", then i found the
+    (SOLUTION)
+    "https://stackoverflow.com/questions/6448242/git-push-error-insufficient-permission-for-adding-an-object-to-repository-datab"
+    By running the command "sudo chmod -R a+rwX ." the issue was resolved | I have to learn permission structure more in depth
+
+
+---------------------- 2 ------------------------------------------------------------------------------------
+
+    I'm facing an issue
+    "file_put_contents(/8PjH52VNZb5nYISxgBcLGe3bcUMHuGRXNofoDpeY): Failed to open stream: Permission denied"
+    I have not found a possible solution yet, whenever I try to implement the solution, my package github
+    permissions disturbs, and I have to implement the (problem-1) solution
+
+    (NO SOLUTION)
+
+
+---------------------- 3 ------------------------------------------------------------------------------------
+
+
+
