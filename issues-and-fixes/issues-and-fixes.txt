@@ -20,5 +20,18 @@
 
 ---------------------- 3 ------------------------------------------------------------------------------------
 
+    
+    (PROBLEM)
+    When you take pull, I mean clone the repo of which you are given access to, after cloning successfully
+    and creating token as password, when you try to make your first commit and push, as soon as you do 
+    `git status`, the console will be filled with all files marked as red, it means changes are made to all 
+    these files, but actually it is not
 
+    (SOLUTION)
+    The solution to this problem is very simple, just hit this command
+    `git config core.filemode false`
 
+    (LINK)
+    https://stackoverflow.com/questions/5787937/git-status-shows-files-as-changed-even-though-contents-are-the-same
+
+---------------------- 4 ------------------------------------------------------------------------------------
